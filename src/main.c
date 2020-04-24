@@ -16,15 +16,11 @@ void init_samples(complex *samples, double sampleWindow){
     }
 }
 
-void print_fft(complex *fft, complex *samples, double sampleWindow){
+void print_fft_mag(float *fft_mag, complex *samples, double sampleWindow){
     printf("{");
     printf("\"data\": [");
     for(uint16_t i=0 ; i<SAMPLES_SIZE/2 ; i++){
-        double magpos = sqrt(pow(fft[i].real, 2)+pow(fft[i].imag,2));
-        double magneg = sqrt(pow(fft[SAMPLES_SIZE-i].real, 2)+pow(fft[SAMPLES_SIZE-i].imag,2));
-        double mag = (magpos+magneg)/1024;
-
-        printf("[%lf,%lf]", (double)i/sampleWindow, mag);
+        printf("[%lf,%lf]", (double)i/sampleWindow, fft_mag[i]);
         if(i<SAMPLES_SIZE/2-1) printf(",");
     }
     printf("]");
@@ -38,7 +34,7 @@ void print_fft(complex *fft, complex *samples, double sampleWindow){
 }
 
 complex samples[SAMPLES_SIZE];
-complex output[SAMPLES_SIZE];
+float fft_mag[SAMPLES_SIZE/2];
 
 int main(){
     init_samples(samples, 10);
@@ -48,7 +44,7 @@ int main(){
     // }
     // clock_t end = clock();
     // printf("%lf us/fft\n", (double)(end - begin) / CLOCKS_PER_SEC / n_bench_loops * 1000000);
-    r4_fft(samples, output);
-    print_fft(output, samples, 10);
+    r4_fft_mag(samples, fft_mag);
+    print_fft_mag(fft_mag, samples, 10);
     return 0;
 }
