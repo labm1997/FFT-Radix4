@@ -44,7 +44,7 @@ int main(){
     // }
     // clock_t end = clock();
     // printf("%lf us/fft\n", (double)(end - begin) / CLOCKS_PER_SEC / n_bench_loops * 1000000);
-    r4_fft_mag(samples, fft_mag);
+    r4_fft_mag2(samples, fft_mag);
     print_fft_mag(fft_mag, samples, 10);
     return 0;
 }

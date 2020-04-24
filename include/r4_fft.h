@@ -12,6 +12,6 @@
 #define bit(N,i) ((N) & (1 << (i)))
 
 void r4_fft(complex *, complex *);
-void r4_fft_mag(complex *, float *);
+void r4_fft_mag2(complex *, float *);
 
 #endif

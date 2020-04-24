@@ -121,11 +121,11 @@ void r4_fft(complex *input, complex *output){
 }
 
 /*
- * Computa o espectro de magnitude de uma entrada.
+ * Computa o quadrado do espectro de magnitude de uma entrada.
  * @params signal: Tem tamanho SAMPLES_SIZE
  * @params magnitude: Tem tamanho SAMPLES_SIZE/2
  */
-void r4_fft_mag(complex *signal, float *magnitude){
+void r4_fft_mag2(complex *signal, float *magnitude){
     // Saída da FFT
     complex output[SAMPLES_SIZE];
 
@@ -134,8 +134,6 @@ void r4_fft_mag(complex *signal, float *magnitude){
 
     // Faz o computo da magnitude
     for(uint16_t i=0 ; i<SAMPLES_SIZE/2 ; i++){
-        float magpos = sqrt(pow(output[i].real, 2)+pow(output[i].imag,2));
-        float magneg = sqrt(pow(output[SAMPLES_SIZE-i].real, 2)+pow(output[SAMPLES_SIZE-i].imag,2));
-        magnitude[i] = (magpos+magneg)/SAMPLES_SIZE;
+        magnitude[i] = (output[i].real*output[i].real + output[i].imag*output[i].imag) / (SAMPLES_SIZE*SAMPLES_SIZE);
     }
 }
