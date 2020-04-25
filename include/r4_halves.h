@@ -3,7 +3,7 @@
 #ifndef HEADER_R4_HALVES
 #define HEADER_R4_HALVES
 
-complex r4_fft_h1[] = {
+const complex r4_fft_h1[] = {
 	{.real = 1.000000, .imag = -0.000000},
 	{.real = 1.000000, .imag = -0.000000},
 	{.real = 0.923880, .imag = -0.382683},
@@ -346,7 +346,8 @@ complex r4_fft_h1[] = {
 	{.real = 0.012272, .imag = -0.999925},
 	{.real = 0.006136, .imag = -0.999981}
 };
-complex r4_fft_h2[] = {
+
+const complex r4_fft_h2[] = {
 	{.real = 1.000000, .imag = -0.000000},
 	{.real = 1.000000, .imag = -0.000000},
 	{.real = 0.707107, .imag = -0.707107},
@@ -689,7 +690,8 @@ complex r4_fft_h2[] = {
 	{.real = -0.999699, .imag = -0.024541},
 	{.real = -0.999925, .imag = -0.012272}
 };
-complex r4_fft_h3[] = {
+
+const complex r4_fft_h3[] = {
 	{.real = 1.000000, .imag = -0.000000},
 	{.real = 1.000000, .imag = -0.000000},
 	{.real = 0.382683, .imag = -0.923880},
